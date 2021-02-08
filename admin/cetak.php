@@ -9,8 +9,8 @@
                  AND us.id_user=rek.id_user
                  AND df.id_iklan=ik.id_iklan 
                  AND id_daftar_pemenang='$id_daftar_pemenang'";
-        $result = mysql_query($quer);
-        $row = mysql_fetch_array($result);
+        $result = mysqli_query($quer);
+        $row = mysqli_fetch_array($result);
 
         $nama=  $row['nama'];
         $judul = $row['judul_iklan'];

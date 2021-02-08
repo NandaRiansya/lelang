@@ -4,10 +4,10 @@ function con_db(){
   $db_user = "root";
   $db_pwd = "";
   $db_name = "cv_witra";
-  $con = mysql_connect($host,$db_user,$db_pwd);
+  $con = mysqli_connect($host,$db_user,$db_pwd);
   if($con){
       // konek ke host
-      $con_db = mysql_select_db($db_name);
+      $con_db = mysqli_select_db($con,$db_name);
       if($con_db){
           return 1;
           //konek ke database
@@ -22,3 +22,4 @@ function con_db(){
       // tidak konek ke database
   }
 }
+

@@ -59,7 +59,7 @@
                     <li>
                       <ul class="menu">
                           <?php
-                            while ($row_confirm = mysql_fetch_array($result_confirm)) {
+                            while ($row_confirm = mysqli_fetch_array($result_confirm)) {
                                 $nama_confirm = $row_confirm['nama'];
                                 $id_confirm = $row_confirm['id_confirm'];
                                 $judul_iklan_confirm = $row_confirm['judul_iklan'];
@@ -95,12 +95,12 @@
                     <li>
                       <ul class="menu">
                           <?php
-                            while ($row_contrib = mysql_fetch_array($result_contrib)) {
+                            while ($row_contrib = mysqli_fetch_array($result_contrib)) {
                                $id_user_contrib = $row_contrib['id_user'];
                                $id_iklan_contrib=$row_contrib['id_iklan'];
                                $query_nama_contrib="SELECT nama FROM user WHERE id_user='$id_user_contrib'";
-                               $result_nama_contrib = mysql_query($query_nama_contrib);
-                               $row_nama_contrib=  mysql_fetch_array($result_nama_contrib);
+                               $result_nama_contrib = mysqli_query($query_nama_contrib);
+                               $row_nama_contrib=  mysqli_fetch_array($result_nama_contrib);
                                $nama_contrib = $row_nama_contrib['nama'];
                                $judul_iklan_contrib = $row_contrib['judul_iklan'];
                      
@@ -131,12 +131,12 @@
                       <ul class="menu">
                           <?php
                                 $query_notif = "SELECT * FROM notif_comentar WHERE status='1' AND id_user='$id_user'";
-                                $result_notif=  mysql_query($query_notif);
-                                while ($row_notif = mysql_fetch_array($result_notif)) {
+                                $result_notif=  mysqli_query($query_notif);
+                                while ($row_notif = mysqli_fetch_array($result_notif)) {
                                     $id_iklan=$row_notif['id_iklan'];
                                     $query_iklan="SELECT judul_iklan FROM iklan WHERE id_iklan='$id_iklan' AND status='1'";
-                                    $result_iklan =  mysql_query($query_iklan);
-                                    $row_iklan=  mysql_fetch_array($result_iklan);
+                                    $result_iklan =  mysqli_query($query_iklan);
+                                    $row_iklan=  mysqli_fetch_array($result_iklan);
                                 ?>
                           
                                 <li>

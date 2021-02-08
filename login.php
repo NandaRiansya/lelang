@@ -35,10 +35,10 @@ con_db();
             $name = $_POST['username'];
             $pwd = md5($_POST['password']);
             $query = "SELECT * FROM user WHERE username='$name' AND password='$pwd'";
-            $result = mysql_query($query);
-            $hasil = mysql_num_rows($result);
+            $result = mysqli_query($query);
+            $hasil = mysqli_num_rows($result);
             if($hasil>0){
-                $row = mysql_fetch_array($result);
+                $row = mysqli_fetch_array($result);
                 if($row['hak_akses']==1){
                     $_SESSION['status']="login";
                     $_SESSION['hak_akses']="admin";

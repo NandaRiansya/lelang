@@ -19,8 +19,8 @@
             <?php
             $id_tutorial=$_GET['id'];
             $query_tutorial="SELECT * FROM tutorial WHERE id_tutorial='$id_tutorial'";
-            $result_tutorial=  mysql_query($query_tutorial);
-            $row_tutorial=  mysql_fetch_array($result_tutorial);
+            $result_tutorial=  mysqli_query($query_tutorial);
+            $row_tutorial=  mysqli_fetch_array($result_tutorial);
             if(isset($_POST['submit'])){
                 $judul        =$_POST['judul'];
                 $kategori     = $_POST['kategori'];
@@ -32,7 +32,7 @@
                             `kategori` =  '$kategori',
                             `isi` =  '$isi' 
                             WHERE  `id_tutorial` ='$id_tutorial';";
-                        $result = mysql_query($query);
+                        $result = mysqli_query($query);
                         if($result){
                             ?>
                             <div class="pad margin no-print">

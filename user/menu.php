@@ -31,8 +31,8 @@
                                       AND user.id_user='$id_user'
                                       ORDER BY lelang.id_lelang DESC
                                         ";
-                    $result_lelang=  mysql_query($query_lelang);
-                    $jumlah_lelang=  mysql_num_rows($result_lelang);                  
+                    $result_lelang=  mysqli_query($query_lelang);
+                    $jumlah_lelang=  mysqli_num_rows($result_lelang);                  
                   ?>
                 <li class="dropdown messages-menu">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -44,7 +44,7 @@
                     <li>
                       <ul class="menu">
                           <?php
-                            while ($row_lelang=  mysql_fetch_array($result_lelang)) {                     
+                            while ($row_lelang=  mysqli_fetch_array($result_lelang)) {                     
                           ?>
                         <li>
                           <a href="detail_lelang.php?id=<?php echo $row_lelang['id_iklan']; ?>">
@@ -71,12 +71,12 @@
                       <ul class="menu">
                           <?php
                                 $query_notif = "SELECT * FROM notif_comentar WHERE status='1' AND id_user='$id_user'";
-                                $result_notif=  mysql_query($query_notif);
-                                while ($row_notif = mysql_fetch_array($result_notif)) {
+                                $result_notif=  mysqli_query($query_notif);
+                                while ($row_notif = mysqli_fetch_array($result_notif)) {
                                     $id_iklan=$row_notif['id_iklan'];
                                     $query_iklan="SELECT judul_iklan FROM iklan WHERE id_iklan='$id_iklan' AND status='1'";
-                                    $result_iklan =  mysql_query($query_iklan);
-                                    $row_iklan=  mysql_fetch_array($result_iklan);
+                                    $result_iklan =  mysqli_query($query_iklan);
+                                    $row_iklan=  mysqli_fetch_array($result_iklan);
                                 ?>
                                 <li>
                                   <a href="detail_comentar.php?id=<?php echo $id_iklan; ?>">

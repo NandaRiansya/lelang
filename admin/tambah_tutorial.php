@@ -29,7 +29,7 @@
                     if($pas == $pass){
                         $query="INSERT INTO `tutorial` (`id_tutorial`, `id_user`, `judul`, `tgl`, `kategori`, `isi`)
                                                 VALUES (NULL, '$id_user', '$judul', '$date', '$kategori', '$isi');";
-                        $result = mysql_query($query);
+                        $result = mysqli_query($query);
                         if($result){
                             ?>
                             <div class="pad margin no-print">

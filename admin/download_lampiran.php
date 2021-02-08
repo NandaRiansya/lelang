@@ -6,8 +6,8 @@
         $quer = "SELECT *
                  FROM lelang
                  WHERE id_lelang='$id_lelang'";
-        $result = mysql_query($quer);
-        $row = mysql_fetch_array($result);
+        $result = mysqli_query($quer);
+        $row = mysqli_fetch_array($result);
         $harga = $row['harga'];
         $ikhtisar = $row['ikhtisar'];
 

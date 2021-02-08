@@ -29,7 +29,7 @@
                         $query = "INSERT INTO `user` 
                                 (`id_user`, `username`, `password`, `nama`, `email`,`no_hp`,`hak_akses`,`block`) 
                          VALUES (NULL, '$username', '$pas', '$nama_lengkap','$email', '$no_hp','1','1');";   
-                        $result = mysql_query($query);
+                        $result = mysqli_query($query);
                         if($result){
                             ?>
                             <div class="pad margin no-print">

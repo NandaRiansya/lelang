@@ -1,8 +1,8 @@
 <?php
 include 'include/koneksi.php';
-con_db();
+$conn = mysqli_connect("localhost", "root", "", "cv_witra");
 $query = "SELECT * FROM  `iklan`  WHERE status='1' ORDER BY tgl_iklan DESC";
-$result = mysql_query($query);  
+$result = mysqli_query($conn,$query);  
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,7 +74,7 @@ $result = mysql_query($query);
           <section class="content">
               <div class="row">
                   <?php
-                  while ($row = mysql_fetch_array($result)) {
+                  while ($row = mysqli_fetch_array($result)) {
                   ?>
                 <div class="col-md-6">
                   <div class="box box-widget">
@@ -96,8 +96,8 @@ $result = mysql_query($query);
                     
                     <?php
                     $que = "SELECT * FROM  `komentar` WHERE id_iklan ='".$row['id_iklan']."' ORDER BY id_komentar ASC ";
-                    $res =  mysql_query($que);
-                    while ($ro = mysql_fetch_array($res)) {
+                    $res =  mysqli_query($que);
+                    while ($ro = mysqli_fetch_array($res)) {
                     ?>
 
                     <div class='box-footer box-comments'>
@@ -106,7 +106,7 @@ $result = mysql_query($query);
                         <div class='comment-text'>
                           <span class="username">
                             <?php
-                            $nama = mysql_fetch_array(mysql_query("SELECT * FROM `user` WHERE id_user='".$ro['id_user']."'"));
+                            $nama = mysqli_fetch_array(mysqli_query("SELECT * FROM `user` WHERE id_user='".$ro['id_user']."'"));
                             echo $nama['nama'];
                             ?>
                             <span class='text-muted pull-right'><?php echo $ro['jam']; ?></span>

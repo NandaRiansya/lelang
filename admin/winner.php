@@ -40,7 +40,7 @@
                                             </tr>
                                               <?php
                                                 $batas = 10;
-                                                $value = mysql_num_rows(mysql_query("SELECT * FROM daftar_pemenang WHERE id_admin='$id_admin'"));
+                                                $value = mysqli_num_rows(mysqli_query("SELECT * FROM daftar_pemenang WHERE id_admin='$id_admin'"));
                                                 $jml_halaman = ceil($value/$batas);
                                                 $halaman=$_GET['halaman'];
                                                 if($halaman==''){
@@ -56,10 +56,10 @@
                                                        AND df.id_iklan=ik.id_iklan 
                                                        ORDER BY  `id_daftar_pemenang`
                                                        DESC LIMIT $posisi,$batas";
-                                              $result = mysql_query($quer);
+                                              $result = mysqli_query($quer);
                                               
                                               $no=$posisi+1;
-                                              while ($row = mysql_fetch_array($result)) {
+                                              while ($row = mysqli_fetch_array($result)) {
                                                   echo "<tr>"
                                                           . "<td>".$no++."</td>"
                                                           . "<td>".$row['nama']."</td>"

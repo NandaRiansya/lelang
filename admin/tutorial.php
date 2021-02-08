@@ -14,7 +14,7 @@
         }
 
         $batas = 10;
-        $value = mysql_num_rows(mysql_query("SELECT * FROM iklan WHERE status='1' AND id_user='$id'"));
+        $value = mysqli_num_rows(mysqli_query("SELECT * FROM iklan WHERE status='1' AND id_user='$id'"));
         $jml_halaman = ceil($value/$batas);
         $halaman=$_GET['halaman'];
         if($halaman==''){
@@ -64,9 +64,9 @@
                                     <?php
                                     
                                     $quer = "SELECT * FROM tutorial,user WHERE tutorial.id_user=user.id_user ORDER BY  `id_tutorial` DESC LIMIT $posisi,$batas";
-                                    $result = mysql_query($quer);
+                                    $result = mysqli_query($quer);
                                     $no=$posisi+1;
-                                    while ($row = mysql_fetch_array($result)) {
+                                    while ($row = mysqli_fetch_array($result)) {
                                         echo "<tr>"
                                                 . "<td>".$no++."</td>"
                                                 . "<td>".$row['judul']."</td>"

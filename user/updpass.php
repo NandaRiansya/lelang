@@ -37,10 +37,10 @@
                 else{
                     $con=koneksi();
                     $select="select id_user,password from user where id_user='$iduser' and password='$passcur'";
-                    $query=mysqli_query($con,$select);
-                    if(mysqli_num_rows($query)>0){
+                    $query=mysqlii_query($con,$select);
+                    if(mysqlii_num_rows($query)>0){
                       $update="update user set password='$passconf' where id_user='$iduser'";
-                      $quer=mysqli_query($con,$update);
+                      $quer=mysqlii_query($con,$update);
                       if($quer){    
                         ?>
                         <div class="pad margin no-print">

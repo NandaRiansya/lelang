@@ -5,9 +5,9 @@
         $id_iklan=$_GET['id'];
         $id_user =$_SESSION['id_user'];
         $query_update_notif = "UPDATE  `notif_comentar` SET  `status` =  '0' WHERE  `id_iklan` ='$id_iklan' AND `id_user`='$id_user';";
-        mysql_query($query_update_notif);
+        mysqli_query($query_update_notif);
         $query = "SELECT * FROM  `iklan` WHERE id_iklan='$id_iklan'";
-        $result = mysql_query($query);
+        $result = mysqli_query($query);
         include 'css.php';        
         ?>     
     </head>
@@ -26,7 +26,7 @@
           <section class="content">
               <div class="row">
                   <?php
-                  while ($row = mysql_fetch_array($result)) {
+                  while ($row = mysqli_fetch_array($result)) {
                   ?>
                 <div class="col-md-6">
                   <div class="box box-widget">
@@ -48,8 +48,8 @@
                     
                     <?php
                     $que = "SELECT * FROM  `komentar` WHERE id_iklan ='".$row['id_iklan']."' ORDER BY id_komentar ASC ";
-                    $res =  mysql_query($que);
-                    while ($ro = mysql_fetch_array($res)) {
+                    $res =  mysqli_query($que);
+                    while ($ro = mysqli_fetch_array($res)) {
                     ?>
 
                     <div class='box-footer box-comments'>
@@ -58,7 +58,7 @@
                         <div class='comment-text'>
                           <span class="username">
                             <?php
-                            $nama = mysql_fetch_array(mysql_query("SELECT * FROM `user` WHERE id_user='".$ro['id_user']."'"));
+                            $nama = mysqli_fetch_array(mysqli_query("SELECT * FROM `user` WHERE id_user='".$ro['id_user']."'"));
                             echo $nama['nama'];
                             ?>
                             <span class='text-muted pull-right'><?php echo $ro['jam']; ?></span>

@@ -3,7 +3,7 @@
         <?php
         include 'session.php';
         $query_profil="SELECT * FROM profil";
-        $result_profil=  mysql_query($query_profil);        
+        $result_profil=  mysqli_query($query_profil);        
         include 'css.php';        
         ?>     
     </head>
@@ -28,7 +28,7 @@
                 $query_simpan ="INSERT INTO `profil` (`id_profil`, `nama`, `jenis`, `alamat`, `tahun_berdiri`, `profil`)
                                               VALUES (NULL, '$nama', '$jenis', '$alamat', '$tgl', '$isi');";
                 
-                $sukses_simpan = mysql_query($query_simpan);
+                $sukses_simpan = mysqli_query($query_simpan);
                     if($sukses_simpan){
                         ?>
                         <div class="pad margin no-print">
@@ -64,7 +64,7 @@
                     `tahun_berdiri`='$tgl',
                     `profil`='$isi'
                     WHERE  `id_profil` ='$id_profil';";
-                $sukses_update = mysql_query($query_update);
+                $sukses_update = mysqli_query($query_update);
                     if($sukses_update){
                         ?>
                         <div class="pad margin no-print">
@@ -86,9 +86,9 @@
                         <?php                            
                     }                
             }
-                if(mysql_num_rows($result_profil)>0){
+                if(mysqli_num_rows($result_profil)>0){
                     $status ="1";// update
-                    $row_profil = mysql_fetch_array($result_profil);
+                    $row_profil = mysqli_fetch_array($result_profil);
             ?>
           <section class="content">
               <div class="row">

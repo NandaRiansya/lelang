@@ -2,7 +2,7 @@
 include '../include/koneksi.php';
 con_db();
 $query = "SELECT * FROM tutorial WHERE kategori='1'";
-$result = mysql_query($query);
+$result = mysqli_query($query);
 
 ?>
 <!DOCTYPE html>
@@ -75,11 +75,11 @@ $result = mysql_query($query);
           <section class="content">
               <div class="row">
                   <?php
-                  while ($row = mysql_fetch_array($result)) {                      
+                  while ($row = mysqli_fetch_array($result)) {                      
                     $id= $row['id_user'];
                     $q_name ="SELECT nama FROM user WHERE id_user='$id'";
-                    $res_name = mysql_query($q_name);
-                    $r_name = mysql_fetch_array($res_name);  
+                    $res_name = mysqli_query($q_name);
+                    $r_name = mysqli_fetch_array($res_name);  
                   ?>
                 <div class="col-md-6">
                   <div class="box box-widget">

@@ -33,7 +33,7 @@
                         $direktori   = "../file/$nama_new";
                   move_uploaded_file($lokasi_file,$direktori);
                 $insert="insert into lelang values('','$userId','$iklanId','$harga','$ikhtisar','$nama_new','0','1')";
-                $query=mysqli_query($con,$insert);
+                $query=mysqlii_query($con,$insert);
                 if($query){
                 ?>
                 <div class="pad margin no-print">

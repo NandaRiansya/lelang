@@ -5,11 +5,11 @@
         $id=$_GET['id'];
         if($id!=NULL){
             $query="SELECT * FROM user where id_user='$id'";
-            $result=  mysql_query($query);
-            $row = mysql_fetch_array($result);    
+            $result=  mysqli_query($query);
+            $row = mysqli_fetch_array($result);    
             $quer="SELECT * FROM rekening where id_user='$id'";
-            $resul=  mysql_query($quer);
-            $rekening = mysql_fetch_array($resul);
+            $resul=  mysqli_query($quer);
+            $rekening = mysqli_fetch_array($resul);
         include 'css.php';        
         ?>     
     </head>

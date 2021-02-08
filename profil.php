@@ -64,8 +64,8 @@
         include 'include/function.php';
         con_db();
         $query_profil = "SELECT * FROM profil";
-        $result_profil= mysql_query($query_profil);
-        $row = mysql_fetch_array($result_profil);
+        $result_profil= mysqli_query($query_profil);
+        $row = mysqli_fetch_array($result_profil);
         ?>
       <div class="content-wrapper background">
         <div class="container">

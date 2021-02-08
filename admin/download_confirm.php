@@ -4,8 +4,8 @@ if(isset($_GET['id']))
     {
         $id = $_GET['id'];
         $query_donlot = "SELECT nama_file FROM confirm_lelang WHERE id_confirm= '$id'";
-        $res_donlot = mysql_query($query_donlot) or die('Error, query failed');
-        list($nama_file) = mysql_fetch_array($res_donlot);
+        $res_donlot = mysqli_query($query_donlot) or die('Error, query failed');
+        list($nama_file) = mysqli_fetch_array($res_donlot);
         echo $nama_file;
         $rootDir = realpath('../file/confirm');
         $fullPath = realpath($rootDir . '/' . $nama_file);

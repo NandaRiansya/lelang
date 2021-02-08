@@ -7,11 +7,11 @@
         $id=$_SESSION['id_user'];
         if($id!=NULL){
             $query="SELECT * FROM user where id_user='$id'";
-            $result=  mysqli_query($con,$query);
-            $row = mysqli_fetch_array($result);
+            $result=  mysqlii_query($con,$query);
+            $row = mysqlii_fetch_array($result);
             $quer="SELECT * FROM rekening where id_user='$id'";
-            $resul=  mysqli_query($con,$quer);
-            $rekening = mysqli_fetch_array($resul);        
+            $resul=  mysqlii_query($con,$quer);
+            $rekening = mysqlii_fetch_array($resul);        
         include 'css.php';        
         ?>     
     </head>
@@ -36,7 +36,7 @@
                 $bank_rek =$_POST['bank_rek'];
                 $upd  ="UPDATE `user` SET `nama`='$nama',`no_hp`='$no_hp',`email`='$email' WHERE `id_user`='$id';";
                 $upd.="UPDATE `rekening` SET `no_rek`='$no_rek',`holder_rek`='$holder_rek',`bank_rek`='$bank_rek' WHERE `id_user`='$id';";
-                $exe = mysqli_multi_query($con, $upd);
+                $exe = mysqlii_multi_query($con, $upd);
                 if($exe){
                     header("location:edit_user.php");
                 }

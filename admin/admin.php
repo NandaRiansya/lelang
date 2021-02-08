@@ -5,7 +5,7 @@
         
         
         $batas = 10;
-        $value = mysql_num_rows(mysql_query("SELECT * FROM user WHERE hak_akses='1'"));
+        $value = mysqli_num_rows(mysqli_query("SELECT * FROM user WHERE hak_akses='1'"));
         $jml_halaman = ceil($value/$batas);
         $halaman=$_GET['halaman'];
         if($halaman==''){
@@ -56,9 +56,9 @@
                                     <?php
 
                                     $quer = "SELECT * FROM user WHERE hak_akses='1' AND block='1' ORDER BY  `id_user` DESC LIMIT $posisi,$batas";
-                                    $res = mysql_query($quer);
+                                    $res = mysqli_query($quer);
                                     $no = $posisi+1;
-                                    while ($row = mysql_fetch_array($res)) {
+                                    while ($row = mysqli_fetch_array($res)) {
                                         echo "<tr>"
                                                 . "<td>".$no++."</td>"
                                                 . "<td>".$row['nama']."</td>"

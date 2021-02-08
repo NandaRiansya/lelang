@@ -47,13 +47,13 @@ elseif($_POST['comentar']!=NULL && $_POST['id_user']!=NULL){
     $comentar = $_POST['comentar'];
     comentar($id_iklan, $id_user, $comentar);
      $query = "SELECT id_user FROM komentar WHERE id_iklan='$id_iklan'"; // cek id yang ada di komentar
-     $result=  mysql_query($query);
-     while ($row = mysql_fetch_array($result)) {
+     $result=  mysqli_query($query);
+     while ($row = mysqli_fetch_array($result)) {
          $id_not=$row['id_user'];
          $cek_query = "SELECT * FROM notif_comentar WHERE id_user='$id_not' AND id_iklan='$id_iklan'";
-         $cek_result = mysql_query($cek_query);
+         $cek_result = mysqli_query($cek_query);
          if($id_not!=$id_user){
-            if(mysql_num_rows($cek_result)>0){
+            if(mysqli_num_rows($cek_result)>0){
                 // update
                 update_notif($id_not, $id_iklan);
             }
@@ -79,25 +79,25 @@ else if($_POST['pas']!=$_POST['pass']){
 
 function block_iklan($id){
     $query = "UPDATE iklan SET status='0' WHERE id_iklan='$id'";
-    mysql_query($query);   
+    mysqli_query($query);   
 }
 function block_admin($id){
     $query = "UPDATE user SET block='0' WHERE id_user='$id'";
-    mysql_query($query);
+    mysqli_query($query);
 }
 function comentar($id_iklan,$id_user,$message){
     $query = "INSERT INTO `komentar` 
                        (`id_komentar`, `id_iklan`, `id_user`, `isi_komentar`,`waktu_komentar`, `jam`)
                 VALUES (NULL, '$id_iklan', '$id_user', '$message','".tgl()."', '".jam()."');";
-    mysql_query($query);
+    mysqli_query($query);
 }
 function insert_notif($id_user,$id_iklan){
                 $insert_query = "INSERT INTO `notif_comentar` (`id_notif`, `id_iklan`, `id_user`, `status`)
                                                                    VALUES (NULL, '$id_iklan', '$id_user', '1');";
-                mysql_query($insert_query);
+                mysqli_query($insert_query);
 }
 function update_notif($id_user,$id_iklan){
                 $update_query ="UPDATE `notif_comentar` SET `status` = '1' WHERE `id_user` ='$id_user' AND `id_iklan`='$id_iklan';";
-                mysql_query($update_query); 
+                mysqli_query($update_query); 
 }
 ?>

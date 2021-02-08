@@ -4,12 +4,12 @@
         include 'session.php';
         $id_iklan=$_GET['id'];
         $query = "SELECT * FROM  `iklan` WHERE id_iklan='$id_iklan'";
-        $result = mysql_query($query);        
+        $result = mysqli_query($query);        
         
         
         $query_pemenang = "SELECT * FROM daftar_pemenang WHERE id_user=$id_user AND id_iklan='$id_iklan'";
-        $res_pemenang = mysql_query($query_pemenang);
-        $ro_pemenang = mysql_fetch_array($res_pemenang);
+        $res_pemenang = mysqli_query($query_pemenang);
+        $ro_pemenang = mysqli_fetch_array($res_pemenang);
         
         include 'css.php';        
         ?>     
@@ -52,7 +52,7 @@
                                 $query_confirm = "INSERT INTO `cv_witra`.`confirm_lelang` 
                                     (`id_confirm`, `id_daftar_pemenang`, `nama_file`, `status`)
                                     VALUES (NULL, '$id_daftar_pemenang', '$nama_new', '0');";
-                                if(mysql_query($query_confirm)){
+                                if(mysqli_query($query_confirm)){
                                     ?>
                                         <div class="pad margin no-print">
                                           <div class="callout callout-info" style="margin-bottom: 0!important;">
@@ -91,7 +91,7 @@
           <section class="content">
               <div class="row">
                   <?php
-                  while ($row = mysql_fetch_array($result)) {
+                  while ($row = mysqli_fetch_array($result)) {
                   ?>
                 <div class="col-md-6">
                   <div class="box box-widget">
@@ -112,8 +112,8 @@
                     
                     <?php
                     $que = "SELECT * FROM  `lelang` WHERE id_iklan ='".$row['id_iklan']."' ORDER BY id_lelang ASC ";
-                    $res =  mysql_query($que);
-                    $ro = mysql_fetch_array($res);
+                    $res =  mysqli_query($que);
+                    $ro = mysqli_fetch_array($res);
                     ?>
 
                     <div class='box-footer box-comments'>
@@ -122,7 +122,7 @@
                         <div class='comment-text'>
                           <span class="username">
                             <?php
-                            $nama = mysql_fetch_array(mysql_query("SELECT * FROM `user` WHERE id_user='$id_user'"));
+                            $nama = mysqli_fetch_array(mysqli_query("SELECT * FROM `user` WHERE id_user='$id_user'"));
                             ?>
                               <a href="#"><?php echo $nama['nama']; ?></a>
                             

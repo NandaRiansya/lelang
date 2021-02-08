@@ -43,7 +43,7 @@
                             $isi   = $_POST['isi_post'];
                             $query = "INSERT INTO `iklan` (`id_iklan`, `id_user`, `tgl_iklan`, `file_iklan`, `judul_iklan`, `isi_iklan`, `status`)
                                                   VALUES  (NULL,'$id','$date','$new_name','$judul','$isi','1');";
-                            mysql_query($query);
+                            mysqli_query($query);
                             ?>
                             <div class="pad margin no-print">
                               <div class="callout callout-info" style="margin-bottom: 0!important;">

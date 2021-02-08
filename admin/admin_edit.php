@@ -19,8 +19,8 @@
             <?php
             $id = $_GET['id'];
             $quer = "SELECT * FROM user WHERE id_user='$id'";
-            $res = mysql_query($quer);
-            $r = mysql_fetch_array($res);                        
+            $res = mysqli_query($quer);
+            $r = mysqli_fetch_array($res);                        
             if(isset($_POST['submit'])){                            
                 $username     = $_POST['u_name'];
                 $nama_lengkap = $_POST['nm_lengkap'];
@@ -31,7 +31,7 @@
                 if(con_db()!=0){
                     if($pas == $pass){
                         $query = "UPDATE `user` SET `username` = '$username', `password` = '$pas', `nama` = '$nama_lengkap', `email` = '$email',`no_hp`='$no_hp' WHERE `id_user` = '$id';";   
-                        $result = mysql_query($query);
+                        $result = mysqli_query($query);
                         if($result){
                             ?>
                             <div class="pad margin no-print">
